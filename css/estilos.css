@@ -542,8 +542,6 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .cita__nombre { font: 400 1.35rem/1.2 var(--tipo-rotulo); }
 .cita__fuente { font-size: .84rem; color: var(--tinta-suave); }
 .cita__fuente span { color: var(--laton-oscuro); letter-spacing: .12em; margin-right: .3rem; }
-.opinion__nota { margin: 0; font-size: .84rem; color: var(--tinta-suave); max-width: 34rem; border-top: 1px solid rgba(116, 89, 43, .3); padding-top: 1rem; }
-
 /* ═══════════════ contacto ═══════════════ */
 .contacto {
   background: var(--pizarra);
