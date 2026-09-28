@@ -247,7 +247,7 @@
       var g = nivel(p);
       colocar(b, g);
       lecturaG.textContent = grados(g);
-      var estado = p >= 0.97 ? 'En equilibrio' : (p <= 0.02 ? 'Inclinada' : 'Buscando el equilibrio');
+      var estado = p >= 0.97 ? 'En equilibrio' : (p <= 0.02 ? 'Inclinada' : 'Oscilando');   /* rótulos cortos: la lectura no puede partir de línea */
       if (estado !== ultimoEstado) {
         ultimoEstado = estado;
         lecturaE.textContent = estado;

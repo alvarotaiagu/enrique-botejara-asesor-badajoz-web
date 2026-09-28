@@ -171,7 +171,7 @@ try {
     if (conCapturas) await page.screenshot({ path: foto('02-hero-a-medias.png') });
     await rueda(page, 3, 600);
     const despues = await lectura(page);
-    comprobar(medio.estado === 'Buscando el equilibrio' || Math.abs(giroDe(medio.giro)) > 0.1, 'a media bajada el brazo oscila → ' + JSON.stringify(medio));
+    comprobar(medio.estado === 'Oscilando' || Math.abs(giroDe(medio.giro)) > 0.1, 'a media bajada el brazo oscila → ' + JSON.stringify(medio));
     comprobar(Math.abs(giroDe(despues.giro)) < 0.01 && despues.grados === '0,0°' && despues.estado === 'En equilibrio', 'al final del hero la balanza queda nivelada → ' + JSON.stringify(despues));
     const plomo = await page.evaluate(() => [document.getElementById('platillo-izq').getAttribute('transform'), document.getElementById('platillo-der').getAttribute('transform')]);
     comprobar(/translate\(90\.00 179\.00\)/.test(plomo[0]) && /translate\(510\.00 179\.00\)/.test(plomo[1]), 'nivelada, los platillos cuelgan de sus ganchos → ' + plomo.join(' / '));
@@ -406,6 +406,20 @@ try {
     const solapan = !(r.texto[2] <= r.balanza[0] || r.balanza[2] <= r.texto[0] || r.texto[3] <= r.balanza[1] || r.balanza[3] <= r.texto[1]);
     comprobar(!solapan && r.texto[3] <= r.alto, 'hero ' + vp.width + '×' + vp.height + ': texto y balanza no se pisan y el texto cabe en pantalla → ' + JSON.stringify(r));
     if (conCapturas) await page.screenshot({ path: foto('3b-hero-' + vp.width + 'x' + vp.height + '.png') });
+    /* la balanza no puede encoger al cambiar la lectura de estado (fallo visto
+       en móvil: «Buscando el equilibrio» partía de línea y robaba alto al dibujo) */
+    const estados = await page.evaluate(() => {
+      const e = document.getElementById('lectura-estado'), g = document.getElementById('lectura-grados');
+      const svg = document.getElementById('balanza'), l = document.querySelector('.lectura');
+      const antes = [e.textContent, g.textContent];
+      const medidas = [['Inclinada', '13,0°'], ['Oscilando', '10,8°'], ['En equilibrio', '0,0°']].map(([t, n]) => {
+        e.textContent = t; g.textContent = n;
+        return [Math.round(svg.getBoundingClientRect().height), Math.round(l.getBoundingClientRect().height), Math.round(g.getBoundingClientRect().left)];
+      });
+      [e.textContent, g.textContent] = antes;
+      return medidas;
+    });
+    comprobar(new Set(estados.map(m => m.join('/'))).size === 1, 'hero ' + vp.width + '×' + vp.height + ': la balanza y la lectura no cambian de tamaño ni se mueven entre estados → ' + JSON.stringify(estados));
     await contexto.close();
   }
 
