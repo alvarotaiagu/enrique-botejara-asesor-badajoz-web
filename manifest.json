@@ -1,0 +1,9 @@
+{
+  "name": "Enrique Botejara · Asesor en Badajoz",
+  "short_name": "Botejara",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#2E3338",
+  "theme_color": "#2E3338",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

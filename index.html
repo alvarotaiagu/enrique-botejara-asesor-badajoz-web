@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!--
+  Enrique Botejara · asesor fiscal, laboral y contable · Badajoz
+  Concepto: «Fiel» — el fiel es la aguja de la balanza que marca el equilibrio.
+  La cortina pesa y se nivela antes de abrirse, el hero se nivela al bajar y
+  las tres áreas (fiscal, laboral, contable) son los tres pesos que la reparten.
+
+  AVISO 1 — Esta maqueta lleva un MANDO DE DEMOSTRACIÓN (solo con ?revision)
+  que cambia entre dos densidades visuales. NO DEBE VIAJAR A PRODUCCIÓN.
+  Receta de borrado en README.md §"Quitar el mando de maqueta".
+
+  AVISO 2 — Datos sin confirmar marcados como [PENDIENTE]. El nombre sale de un
+  directorio (gestorias.es) que da otra planta y otro código postal: validar.
+-->
+<html lang="es" class="sin-js densidad-fiel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Enrique Botejara · Asesor fiscal, laboral y contable en Badajoz</title>
+<meta name="description" content="Asesoramiento fiscal, laboral y contable en Badajoz. Despacho en la calle Regino de Miguel, 9. Teléfono 924 25 94 61.">
+<meta name="theme-color" content="#2E3338">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Enrique Botejara · Asesor en Badajoz">
+<meta property="og:description" content="Su situación fiscal, en equilibrio. Asesoramiento fiscal, laboral y contable en la calle Regino de Miguel, Badajoz.">
+<meta property="og:image" content="assets/og-botejara.jpg">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,600;1,400&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+<script>
+/* Bloqueante a propósito: la densidad se resuelve antes del primer pintado.
+   [MANDO DE MAQUETA] — la parte de la densidad es eliminable, ver README. */
+(function () {
+  var h = document.documentElement;
+  h.classList.remove('sin-js');
+  h.classList.add('con-js');
+  /* red de seguridad por si main.js no llega: la cortina nunca tapa la página */
+  setTimeout(function () {
+    var c = document.getElementById('cortina');
+    if (c) c.classList.add('fuera');
+    h.classList.remove('cortina-activa');
+  }, 8000);
+  /* la densidad guardada solo cuenta en modo revisión (?revision) */
+  if (!/[?&]revision\b/.test(location.search)) return;
+  try {
+    var d = localStorage.getItem('botejara-densidad');
+    if (d === 'sobria' || d === 'fiel') {
+      h.classList.remove('densidad-fiel', 'densidad-sobria');
+      h.classList.add('densidad-' + d);
+    }
+  } catch (e) {}
+})();
+</script>
+<noscript><style>.cortina { display: none !important; }</style></noscript>
+</head>
+<body>
+
+<a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+<!-- ───────── Sprite: monograma (cabecera, pie) ───────── -->
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="monograma" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="60" cy="60" r="56" stroke-width="1.6"/>
+      <circle cx="60" cy="60" r="51.5" stroke-width=".7"/>
+      <path d="M49.53 24.6A17 17 0 0 1 70.47 24.6" stroke-width=".9"/>
+      <path d="M60 20.6V17.2M53.9 22.2 52.9 19M66.1 22.2 67.1 19" stroke-width=".7"/>
+      <path d="M34 38.4Q60 36.2 86 38.4" stroke-width="1.8"/>
+      <path d="M60 40V91" stroke-width="1.3"/>
+      <path d="M50 93.5H70" stroke-width="1.6"/>
+      <path d="M54 90.5H66" stroke-width=".9"/>
+      <path d="M24 48.6 37 38.8 50 48.6M70 48.6 83 38.8 96 48.6" stroke-width=".8"/>
+    </g>
+    <g fill="currentColor">
+      <path d="M59.2 38 60 22.6 60.8 38Z"/>
+      <circle cx="60" cy="38" r="2.2"/>
+      <circle cx="34" cy="38.4" r="1.4"/>
+      <circle cx="86" cy="38.4" r="1.4"/>
+      <path transform="translate(21.53 86)" d="M28.86 -10.92 27.56 0H2.08V-0.42L6.34 -0.83V-35.05L2.08 -35.46V-35.880H27.61L28.34 -26.1L27.82 -26.05L24.91 -33.33Q24.44 -34.53 23.89 -34.89Q23.35 -35.26 22.1 -35.26H10.35V-19.29H18.04Q19.29 -19.29 19.81 -19.71Q20.33 -20.12 20.54 -21.32L21.42 -25.53H22.05V-12.220H21.42L20.54 -16.43Q20.33 -17.63 19.81 -18.04Q19.29 -18.46 18.04 -18.46H10.35V-0.62H22Q23.24 -0.62 23.82 -1.01Q24.39 -1.4 24.86 -2.55L28.29 -10.97Z"/>
+      <path transform="translate(67.4 86)" d="M29.17 -9.83Q29.17 -5.67 26.29 -2.83Q23.4 0 17.42 0H2.08V-0.42L6.34 -0.83V-35.05L2.08 -35.46V-35.88H15.03Q21.16 -35.88 24.39 -33.7Q27.61 -31.51 27.61 -27.35Q27.61 -24.02 25.58 -21.84Q23.56 -19.66 19.86 -19.14V-18.93Q24.39 -18.3 26.78 -15.96Q29.17 -13.62 29.17 -9.830ZM10.35 -35.26V-19.29H16.38Q19.86 -19.29 21.4 -21.32Q22.93 -23.35 22.93 -27.35Q22.93 -35.26 14.87 -35.26ZM24.23 -9.67Q24.23 -14.4 22.2 -16.54Q20.18 -18.67 16.17 -18.67H10.35V-0.62H16.17Q24.23 -0.62 24.23 -9.67Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ═══════════ Cortina: la balanza pesa, se nivela y la página se abre por el fiel ═══════════ -->
+<div class="cortina" id="cortina" aria-hidden="true">
+  <div class="cortina__mitad cortina__mitad--arriba" id="cortina-arriba">
+    <p class="cortina__lectura"><span id="cortina-grados">0,0°</span><span class="cortina__lectura-pie">desviación del fiel</span></p>
+    <svg class="cortina__dial" id="cortina-dial" viewBox="0 0 440 240" focusable="false">
+      <g class="cd-fijo">
+        <path class="cd-traza" pathLength="1" d="M156.4 98.2A120 120 0 0 1 283.6 98.2"/>
+        <path class="cd-traza cd-traza--fina" pathLength="1" d="M142.7 80.9A142 142 0 0 1 297.3 80.9"/>
+        <path class="cd-marcas" d="M160.0 96.1L152.0 82.2M165.5 93.1L162.3 86.8M171.2 90.4L167.1 81.2M177.0 88.0L174.5 81.4M182.9 85.9L179.8 76.4M188.9 84.1L184.8 68.6M195.1 82.6L193.0 72.8M201.2 81.5L200.1 74.6M207.5 80.7L206.4 70.7M213.7 80.2L213.4 73.2M220.0 80.0L220.0 64.0M226.3 80.2L226.6 73.2M232.5 80.7L233.6 70.7M238.8 81.5L239.9 74.6M244.9 82.6L247.0 72.8M251.1 84.1L255.2 68.6M257.1 85.9L260.2 76.4M263.0 88.0L265.5 81.4M268.8 90.4L272.9 81.2M274.5 93.1L277.7 86.8M280.0 96.1L288.0 82.2"/>
+        <path class="cd-indice" id="cortina-indice" d="M214.5 44H225.5L220 54Z"/>
+      </g>
+      <g class="cd-cruz" id="cortina-cruz">
+        <path class="cd-fiel" d="M217.4 198 220 86 222.6 198Z"/>
+        <path class="cd-traza cd-traza--cruz" pathLength="1" d="M24 201.5Q122 198.5 220 197.5Q318 198.5 416 201.5"/>
+        <circle class="cd-eje" cx="220" cy="200" r="7"/>
+        <circle class="cd-punta" cx="22" cy="201.5" r="4"/>
+        <circle class="cd-punta" cx="418" cy="201.5" r="4"/>
+      </g>
+    </svg>
+    <span class="cortina__horizonte" id="cortina-horizonte"></span>
+    <svg class="cortina__labio cortina__labio--arriba" viewBox="0 0 100 10" preserveAspectRatio="none" focusable="false"><path id="labio-arriba" d="M0 0H100V0Q50 0 0 0Z"/></svg>
+  </div>
+  <div class="cortina__mitad cortina__mitad--abajo" id="cortina-abajo">
+    <svg class="cortina__labio cortina__labio--abajo" viewBox="0 0 100 10" preserveAspectRatio="none" focusable="false"><path id="labio-abajo" d="M0 10H100V10Q50 10 0 10Z"/></svg>
+    <div class="cortina__base" id="cortina-base">
+      <svg class="cortina__pie-balanza" viewBox="0 0 440 96" focusable="false">
+        <path class="cd-traza" pathLength="1" d="M212 15 220 2 228 15Z"/>
+        <path class="cd-traza" pathLength="1" d="M204 16H236"/>
+        <path class="cd-traza" pathLength="1" d="M220 16V70"/>
+        <path class="cd-traza" pathLength="1" d="M196 78H244"/>
+        <path class="cd-traza cd-traza--fina" pathLength="1" d="M204 72H236"/>
+      </svg>
+      <p class="cortina__nombre" id="cortina-nombre"><span>Enrique</span> <span>Botejara</span></p>
+      <p class="cortina__oficio" id="cortina-oficio">Asesor fiscal · laboral · contable — Badajoz</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ Cabecera ═══════════ -->
+<header class="cabecera" id="cabecera">
+  <a class="cabecera__marca" href="#inicio" aria-label="Enrique Botejara, asesor en Badajoz: volver al inicio">
+    <svg class="cabecera__mono" width="46" height="46" aria-hidden="true" focusable="false"><use href="#monograma" width="46" height="46"/></svg>
+    <span class="cabecera__nombre">Enrique Botejara<small>Asesor · Badajoz</small></span>
+  </a>
+  <nav class="cabecera__nav" id="menu" aria-label="Principal">
+    <a href="#areas">Áreas</a>
+    <a href="#opinion">Opinión</a>
+    <a href="#contacto">Contacto</a>
+    <a class="cabecera__llamar-movil" href="tel:+34924259461">Llamar · 924 25 94 61</a>
+  </nav>
+  <a class="boton boton--linea cabecera__llamar iman" href="tel:+34924259461"><span>924 25 94 61</span></a>
+  <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="menu">
+    <span class="visualmente-oculto">Abrir menú</span>
+    <span class="hamburguesa__linea"></span>
+    <span class="hamburguesa__linea"></span>
+  </button>
+</header>
+
+<main id="contenido">
+
+  <!-- ═══════════ Hero: la balanza se nivela al bajar ═══════════ -->
+  <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <div class="hero__texto">
+      <p class="antetitulo">Asesoría fiscal, laboral y contable · Badajoz</p>
+      <h1 class="hero__titulo" id="hero-titulo" data-revelar="letras">Su situación fiscal, en equilibrio.</h1>
+      <p class="hero__entrada">Enrique Botejara lleva lo fiscal, lo laboral y lo contable desde su despacho de la calle Regino de Miguel, en Badajoz. Tres áreas que se tocan, en unas mismas manos.</p>
+      <div class="hero__acciones">
+        <a class="boton iman" href="tel:+34924259461"><span>Llamar al 924 25 94 61</span></a>
+        <a class="enlace" href="#areas">Ver las tres áreas</a>
+      </div>
+      <p class="hero__nota"><span class="estrellas" aria-hidden="true">★★★★★</span> 5,0 en Google · 1 reseña</p>
+    </div>
+
+    <figure class="hero__balanza">
+      <svg class="balanza" id="balanza" viewBox="0 0 600 580" role="img" aria-labelledby="balanza-titulo">
+        <title id="balanza-titulo">Balanza de latón de dos platillos, dibujada a trazo fino</title>
+        <defs>
+          <pattern id="rayado" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><line x1="0" y1="0" x2="0" y2="5" class="rayado__linea"/></pattern>
+          <pattern id="rayado-denso" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-42)"><line x1="0" y1="0" x2="0" y2="3" class="rayado__linea"/></pattern>
+        </defs>
+
+        <path class="balanza__horizonte" d="M-150 170H3000"/>
+
+        <!-- parte fija: peana, columna, lira y cuadrante del fiel -->
+        <g class="balanza__fija">
+          <path class="b-suelo" d="M130 566H470M160 571H440"/>
+          <path class="b-relleno" d="M172 558H428V540H172Z"/>
+          <path class="b-linea" d="M172 558H428V540H172Z"/>
+          <path class="b-linea" d="M196 540V526H404V540"/>
+          <path class="b-fina" d="M202 533H398"/>
+          <path class="b-relleno" d="M300 526H386C386 506 330 508 300 507Z"/>
+          <path class="b-linea" d="M214 526C214 506 386 506 386 526"/>
+          <path class="b-fina" d="M232 520C240 510 360 510 368 520"/>
+          <path class="b-linea soporte trazable" pathLength="1" d="M280 511H320V500H280Z"/>
+          <path class="b-relleno b-relleno--denso" d="M303 500 304 214H307L310 500Z"/>
+          <path class="b-linea soporte trazable" pathLength="1" d="M290 500 293 214H307L310 500Z"/>
+          <path class="b-fina soporte trazable" pathLength="1" d="M296 498 297.5 216"/>
+          <path class="b-fina soporte trazable" pathLength="1" d="M300 498V216"/>
+          <path class="b-fina" d="M289 440H311M289 446H311M291 290H309"/>
+          <path class="b-linea" d="M286 214H314M284 208H316"/>
+          <path class="b-linea" d="M284 208C284 198 290 194 300 194C310 194 316 198 316 208"/>
+          <path class="b-fina" d="M284 206C274 206 270 198 276 194C280 191 284 195 281 198M316 206C326 206 330 198 324 194C320 191 316 195 319 198"/>
+          <path class="b-linea" d="M291 194 300 178 309 194"/>
+          <path class="b-fina soporte trazable" pathLength="1" d="M286 200C250 190 236 150 244 116C248 96 250 82 251.8 71.1"/>
+          <path class="b-fina soporte trazable" pathLength="1" d="M314 200C350 190 364 150 356 116C352 96 350 82 348.2 71.1"/>
+          <path class="b-linea" d="M251.8 71.1A110 110 0 0 1 348.2 71.1"/>
+          <path class="b-linea" d="M242.8 57.7A126 126 0 0 1 357.2 57.7"/>
+          <path class="b-fina" d="M238.5 54.3A131 131 0 0 1 361.5 54.3M251.8 71.1 238.5 54.3M348.2 71.1 361.5 54.3"/>
+          <path class="b-fina" d="M255.3 69.5L249.6 56.7M260.6 67.3L258.4 61.7M266.0 65.4L263.2 56.8M271.5 63.7L270.0 58.0M277.1 62.4L274.2 48.7M282.8 61.4L281.9 55.4M288.5 60.6L287.6 51.7M294.2 60.2L293.9 54.2M300.0 60.0L300.0 46.0M305.8 60.2L306.1 54.2M311.5 60.6L312.4 51.7M317.2 61.4L318.1 55.4M322.9 62.4L325.8 48.7M328.5 63.7L330.0 58.0M334.0 65.4L336.8 56.8M339.4 67.3L341.6 61.7M344.7 69.5L350.4 56.7"/>
+          <path class="balanza__indice" d="M295.5 28H304.5L300 37Z"/>
+        </g>
+
+        <!-- la cruz (brazo) y el fiel: giran juntos alrededor del eje (300,170) -->
+        <g class="balanza__cruz" id="cruz">
+          <path class="balanza__fiel" d="M297.6 168 300 62 302.4 168Z"/>
+          <circle class="b-linea b-opaco" cx="300" cy="150" r="4"/>
+          <path class="b-opaco b-linea" d="M82 165Q190 161 300 159Q410 161 518 165L518 173Q410 177 300 181Q190 177 82 173Z"/>
+          <path class="b-relleno b-relleno--denso" d="M82 170Q190 172 300 175Q410 172 518 170L518 173Q410 177 300 181Q190 177 82 173Z"/>
+          <path class="b-fina" d="M100 167.5Q200 164.5 288 163.5M312 163.5Q400 164.5 500 167.5"/>
+          <circle class="b-linea b-opaco" cx="78" cy="169" r="6"/>
+          <circle class="b-linea b-opaco" cx="522" cy="169" r="6"/>
+          <circle class="b-punto" cx="78" cy="169" r="1.8"/>
+          <circle class="b-punto" cx="522" cy="169" r="1.8"/>
+          <path class="b-linea" d="M90 173V179M510 173V179"/>
+          <circle class="b-linea b-opaco" cx="300" cy="170" r="10"/>
+          <circle class="b-fina" cx="300" cy="170" r="6"/>
+          <circle class="b-punto" cx="300" cy="170" r="2"/>
+        </g>
+
+        <!-- platillo izquierdo: papeles -->
+        <g class="balanza__platillo" id="platillo-izq" transform="translate(90 179)">
+          <circle class="b-linea" cx="0" cy="4" r="4"/>
+          <path class="cadena trazable" pathLength="1" d="M-1.5 8-66 194"/>
+          <path class="cadena trazable" pathLength="1" d="M1.5 8 66 194"/>
+          <path class="cadena cadena--fondo trazable" pathLength="1" d="M0 8V189"/>
+          <path class="eslabones" d="M-1.5 8-66 194M1.5 8 66 194"/>
+          <g class="carga">
+            <path class="b-opaco b-linea" d="M-42 190-8 184 30 189-4 195Z"/>
+            <path class="b-opaco b-linea" d="M-40 185-6 179 32 184-2 190Z"/>
+            <path class="b-opaco b-linea" d="M-38 180-4 174 34 179 0 185Z"/>
+            <path class="b-fina" d="M-24 179 4 175M-20 181.5 14 177M-14 184 20 179.5"/>
+          </g>
+          <path class="b-opaco" d="M-74 194Q-62 228 0 230Q62 228 74 194Z"/>
+          <path class="b-relleno" d="M-74 194Q-62 228 0 230Q62 228 74 194Z"/>
+          <path class="b-linea" d="M-74 194Q-62 228 0 230Q62 228 74 194"/>
+          <path class="b-linea" d="M-74 194A74 7 0 0 0 74 194"/>
+          <path class="b-fina" d="M-74 194A74 7 0 0 1 74 194"/>
+          <path class="b-luz" d="M-58 204Q-40 219-6 222"/>
+        </g>
+
+        <!-- platillo derecho: monedas -->
+        <g class="balanza__platillo" id="platillo-der" transform="translate(510 179)">
+          <circle class="b-linea" cx="0" cy="4" r="4"/>
+          <path class="cadena trazable" pathLength="1" d="M-1.5 8-66 194"/>
+          <path class="cadena trazable" pathLength="1" d="M1.5 8 66 194"/>
+          <path class="cadena cadena--fondo trazable" pathLength="1" d="M0 8V189"/>
+          <path class="eslabones" d="M-1.5 8-66 194M1.5 8 66 194"/>
+          <g class="carga">
+            <path class="b-opaco b-linea" d="M-34 191V171A16 4.5 0 0 1-2 171V191A16 4.5 0 0 1-34 191Z"/>
+            <ellipse class="b-linea" cx="-18" cy="171" rx="16" ry="4.5"/>
+            <path class="b-fina" d="M-34 187A16 4.5 0 0 0-2 187M-34 183A16 4.5 0 0 0-2 183M-34 179A16 4.5 0 0 0-2 179M-34 175A16 4.5 0 0 0-2 175"/>
+            <path class="b-opaco b-linea" d="M4 192V181A15 4.2 0 0 1 34 181V192A15 4.2 0 0 1 4 192Z"/>
+            <ellipse class="b-linea" cx="19" cy="181" rx="15" ry="4.2"/>
+            <path class="b-fina" d="M4 188A15 4.2 0 0 0 34 188M4 184.5A15 4.2 0 0 0 34 184.5"/>
+          </g>
+          <path class="b-opaco" d="M-74 194Q-62 228 0 230Q62 228 74 194Z"/>
+          <path class="b-relleno" d="M-74 194Q-62 228 0 230Q62 228 74 194Z"/>
+          <path class="b-linea" d="M-74 194Q-62 228 0 230Q62 228 74 194"/>
+          <path class="b-linea" d="M-74 194A74 7 0 0 0 74 194"/>
+          <path class="b-fina" d="M-74 194A74 7 0 0 1 74 194"/>
+          <path class="b-luz" d="M-58 204Q-40 219-6 222"/>
+        </g>
+      </svg>
+      <figcaption class="lectura" aria-live="off">
+        <span class="lectura__rotulo">Desviación del fiel</span>
+        <span class="lectura__grados" id="lectura-grados">0,0°</span>
+        <span class="lectura__estado" id="lectura-estado">En equilibrio</span>
+      </figcaption>
+    </figure>
+
+    <p class="hero__desliza" aria-hidden="true">Baje y la balanza se nivela</p>
+  </section>
+
+  <!-- ═══════════ Cinta ═══════════ -->
+  <div class="cinta" aria-hidden="true">
+    <div class="cinta__pista" id="cinta-pista">
+      <div class="cinta__grupo">
+        <span>Fiscal</span><i></i><span>Laboral</span><i></i><span>Contable</span><i></i><span>Badajoz</span><i></i><span>Calle Regino de Miguel, 9</span><i></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ficha del despacho: SOLO en la densidad sobria (dato en lugar de dibujo) -->
+  <section class="ficha" aria-label="Ficha del despacho">
+    <dl class="ficha__lista">
+      <div><dt>Áreas</dt><dd>Fiscal · Laboral · Contable</dd></div>
+      <div><dt>Despacho</dt><dd>C. Regino de Miguel, 9, Bajo Dcha · 06005 Badajoz</dd></div>
+      <div><dt>Teléfono</dt><dd><a href="tel:+34924259461">924 25 94 61</a></dd></div>
+      <div><dt>Horario</dt><dd><span class="marca-pendiente">[PENDIENTE: franjas]</span></dd></div>
+      <div><dt>Google</dt><dd>5,0 ★ · 1 reseña</dd></div>
+    </dl>
+  </section>
+
+  <!-- ═══════════ Áreas: los tres pesos ═══════════ -->
+  <section class="areas" id="areas" aria-labelledby="areas-titulo">
+    <div class="areas__cabeza">
+      <p class="antetitulo antetitulo--claro">Las tres áreas</p>
+      <h2 class="areas__titulo" id="areas-titulo" data-revelar="palabras">Tres pesos, un solo equilibrio.</h2>
+      <p class="areas__entrada">Lo fiscal, lo laboral y lo contable no van por separado: una nómina cambia un impuesto y una factura cambia un balance. Por eso conviene que los lleve la misma persona.</p>
+    </div>
+
+    <div class="areas__cuerpo">
+      <aside class="areas__balanza" aria-hidden="true">
+        <svg class="balanza balanza--mini" id="balanza-mini" viewBox="0 0 600 580" focusable="false">
+          <g class="balanza__fija">
+            <path class="b-suelo" d="M150 566H450"/>
+            <path class="b-linea" d="M180 558H420V540H180Z"/>
+            <path class="b-linea" d="M214 540C214 518 386 518 386 540"/>
+            <path class="b-linea" d="M291 522 294 214H306L309 522Z"/>
+            <path class="b-linea" d="M286 214H314"/>
+            <path class="b-linea" d="M291 194 300 178 309 194M288 208C288 199 294 196 300 196C306 196 312 199 312 208Z"/>
+            <path class="b-linea" d="M251.8 71.1A110 110 0 0 1 348.2 71.1"/>
+            <path class="b-fina" d="M277.1 62.4L274.2 48.7M300.0 60.0L300.0 46.0M322.9 62.4L325.8 48.7M288.5 60.6L287.6 51.7M311.5 60.6L312.4 51.7"/>
+            <path class="b-fina" d="M286 200C250 190 236 150 244 116C248 96 250 82 251.8 71.1M314 200C350 190 364 150 356 116C352 96 350 82 348.2 71.1"/>
+            <path class="balanza__indice" d="M295.5 30H304.5L300 39Z"/>
+          </g>
+          <g class="balanza__cruz" id="cruz-mini">
+            <path class="balanza__fiel" d="M297.6 168 300 66 302.4 168Z"/>
+            <path class="b-opaco b-linea" d="M82 165Q190 161 300 159Q410 161 518 165L518 173Q410 177 300 181Q190 177 82 173Z"/>
+            <circle class="b-linea b-opaco" cx="78" cy="169" r="6"/>
+            <circle class="b-linea b-opaco" cx="522" cy="169" r="6"/>
+            <path class="b-linea" d="M90 173V179M510 173V179"/>
+            <circle class="b-linea b-opaco" cx="300" cy="170" r="10"/>
+          </g>
+          <g class="balanza__platillo" id="mini-izq" transform="translate(90 179)">
+            <path class="cadena" d="M-1.5 8-66 194M1.5 8 66 194"/>
+            <g class="pesa" data-pesa="1" transform="translate(-28 0)"><g class="pesa__caida">
+              <path class="b-opaco b-linea" d="M-18 193H18V169Q18 160 6 160H-6Q-18 160-18 169Z"/>
+              <circle class="b-opaco b-linea" cx="0" cy="154" r="6"/>
+              <path class="b-fina" d="M-18 185H18"/>
+            </g></g>
+            <g class="pesa" data-pesa="3" transform="translate(28 0)"><g class="pesa__caida">
+              <path class="b-opaco b-linea" d="M-13 193H13V176Q13 170 5 170H-5Q-13 170-13 176Z"/>
+              <circle class="b-opaco b-linea" cx="0" cy="165.5" r="4.5"/>
+              <path class="b-fina" d="M-13 187H13"/>
+            </g></g>
+            <path class="b-opaco b-linea" d="M-74 194Q-62 228 0 230Q62 228 74 194Z"/>
+            <path class="b-linea" d="M-74 194A74 7 0 0 0 74 194"/>
+          </g>
+          <g class="balanza__platillo" id="mini-der" transform="translate(510 179)">
+            <path class="cadena" d="M-1.5 8-66 194M1.5 8 66 194"/>
+            <g class="pesa" data-pesa="2"><g class="pesa__caida">
+              <path class="b-opaco b-linea" d="M-24 193H24V162Q24 150 8 150H-8Q-24 150-24 162Z"/>
+              <circle class="b-opaco b-linea" cx="0" cy="142" r="8"/>
+              <path class="b-fina" d="M-24 183H24"/>
+            </g></g>
+            <path class="b-opaco b-linea" d="M-74 194Q-62 228 0 230Q62 228 74 194Z"/>
+            <path class="b-linea" d="M-74 194A74 7 0 0 0 74 194"/>
+          </g>
+        </svg>
+        <ol class="reparto" id="reparto">
+          <li data-paso="1"><span>I</span> Fiscal <em>platillo izquierdo</em></li>
+          <li data-paso="2"><span>II</span> Laboral <em>platillo derecho</em></li>
+          <li data-paso="3"><span>III</span> Contable <em>platillo izquierdo</em></li>
+        </ol>
+        <p class="reparto__lectura"><span id="mini-grados">0,0°</span> <span id="mini-estado">Sin pesos</span></p>
+      </aside>
+
+      <ol class="pila" id="pila">
+        <li class="pila__item" id="area-fiscal">
+          <article class="tarjeta" aria-labelledby="t-fiscal">
+            <div class="tarjeta__peso">
+              <svg class="pesa-grande" viewBox="0 0 160 180" aria-hidden="true" focusable="false">
+                <ellipse class="pg-sombra" cx="80" cy="170" rx="58" ry="6"/>
+                <path class="pg-cuerpo" d="M34 168H126V104Q126 84 104 84H56Q34 84 34 104Z"/>
+                <path class="pg-rayado" d="M104 168H126V104Q126 84 104 84H100Q114 90 114 106V168Z"/>
+                <path class="pg-linea" d="M34 168H126V104Q126 84 104 84H56Q34 84 34 104Z"/>
+                <path class="pg-fina" d="M34 150H126M40 100Q80 94 120 100"/>
+                <path class="pg-linea pg-cuerpo" d="M70 84V72H90V84"/>
+                <circle class="pg-linea pg-cuerpo" cx="80" cy="60" r="13"/>
+                <circle class="pg-fina" cx="80" cy="60" r="7"/>
+                <text class="pg-numeral" x="80" y="137" text-anchor="middle">I</text>
+              </svg>
+              <span class="tarjeta__numeral" aria-hidden="true">I</span>
+            </div>
+            <div class="tarjeta__texto">
+              <p class="tarjeta__num">Peso I de III</p>
+              <h3 id="t-fiscal">Fiscal</h3>
+              <p class="tarjeta__lema">Los impuestos, a su hora.</p>
+              <p>Declaraciones, liquidaciones y dudas con Hacienda: saber qué hay que presentar, cuándo y con qué papeles, antes de que llegue el plazo.</p>
+              <p class="tarjeta__lista-titulo">Lo habitual en esta área <span class="marca-pendiente">[PENDIENTE: confirmar trámites]</span></p>
+              <ul class="tarjeta__lista">
+                <li>Declaración de la renta</li>
+                <li>IVA e IRPF trimestrales</li>
+                <li>Impuesto de sociedades</li>
+                <li>Requerimientos de Hacienda</li>
+              </ul>
+              <a class="enlace" href="tel:+34924259461">Consultar lo fiscal · 924 25 94 61</a>
+            </div>
+          </article>
+        </li>
+        <li class="pila__item" id="area-laboral">
+          <article class="tarjeta" aria-labelledby="t-laboral">
+            <div class="tarjeta__peso">
+              <svg class="pesa-grande" viewBox="0 0 160 180" aria-hidden="true" focusable="false">
+                <ellipse class="pg-sombra" cx="80" cy="170" rx="68" ry="6"/>
+                <path class="pg-cuerpo" d="M22 168H138V92Q138 66 110 66H50Q22 66 22 92Z"/>
+                <path class="pg-rayado" d="M112 168H138V92Q138 66 110 66H106Q124 74 124 94V168Z"/>
+                <path class="pg-linea" d="M22 168H138V92Q138 66 110 66H50Q22 66 22 92Z"/>
+                <path class="pg-fina" d="M22 150H138M30 88Q80 80 130 88"/>
+                <path class="pg-linea pg-cuerpo" d="M68 66V52H92V66"/>
+                <circle class="pg-linea pg-cuerpo" cx="80" cy="37" r="16"/>
+                <circle class="pg-fina" cx="80" cy="37" r="9"/>
+                <text class="pg-numeral" x="80" y="130" text-anchor="middle">II</text>
+              </svg>
+              <span class="tarjeta__numeral" aria-hidden="true">II</span>
+            </div>
+            <div class="tarjeta__texto">
+              <p class="tarjeta__num">Peso II de III</p>
+              <h3 id="t-laboral">Laboral</h3>
+              <p class="tarjeta__lema">Las personas, en regla.</p>
+              <p>Contratos, nóminas y Seguridad Social de quien tiene gente a su cargo, y de quien trabaja por su cuenta: que cada alta, baja y cambio quede bien hecho.</p>
+              <p class="tarjeta__lista-titulo">Lo habitual en esta área <span class="marca-pendiente">[PENDIENTE: confirmar trámites]</span></p>
+              <ul class="tarjeta__lista">
+                <li>Contratos y altas</li>
+                <li>Nóminas y seguros sociales</li>
+                <li>Bajas y finiquitos</li>
+                <li>Autónomos</li>
+              </ul>
+              <a class="enlace" href="tel:+34924259461">Consultar lo laboral · 924 25 94 61</a>
+            </div>
+          </article>
+        </li>
+        <li class="pila__item" id="area-contable">
+          <article class="tarjeta" aria-labelledby="t-contable">
+            <div class="tarjeta__peso">
+              <svg class="pesa-grande" viewBox="0 0 160 180" aria-hidden="true" focusable="false">
+                <ellipse class="pg-sombra" cx="80" cy="170" rx="46" ry="5"/>
+                <path class="pg-cuerpo" d="M46 168H114V118Q114 102 98 102H62Q46 102 46 118Z"/>
+                <path class="pg-rayado" d="M96 168H114V118Q114 102 98 102H94Q104 108 104 120V168Z"/>
+                <path class="pg-linea" d="M46 168H114V118Q114 102 98 102H62Q46 102 46 118Z"/>
+                <path class="pg-fina" d="M46 154H114M52 116Q80 111 108 116"/>
+                <path class="pg-linea pg-cuerpo" d="M72 102V92H88V102"/>
+                <circle class="pg-linea pg-cuerpo" cx="80" cy="82" r="10"/>
+                <circle class="pg-fina" cx="80" cy="82" r="5"/>
+                <text class="pg-numeral pg-numeral--peque" x="80" y="142" text-anchor="middle">III</text>
+              </svg>
+              <span class="tarjeta__numeral" aria-hidden="true">III</span>
+            </div>
+            <div class="tarjeta__texto">
+              <p class="tarjeta__num">Peso III de III</p>
+              <h3 id="t-contable">Contable</h3>
+              <p class="tarjeta__lema">Las cuentas, que cuadren.</p>
+              <p>La contabilidad del negocio llevada al día, para cerrar cada ejercicio sin prisas y saber en cualquier momento cómo van las cosas.</p>
+              <p class="tarjeta__lista-titulo">Lo habitual en esta área <span class="marca-pendiente">[PENDIENTE: confirmar trámites]</span></p>
+              <ul class="tarjeta__lista">
+                <li>Contabilidad al día</li>
+                <li>Libros registro</li>
+                <li>Cuentas anuales</li>
+                <li>Cierre del ejercicio</li>
+              </ul>
+              <a class="enlace" href="tel:+34924259461">Consultar lo contable · 924 25 94 61</a>
+            </div>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══════════ Opinión: la reseña que hay, entera ═══════════ -->
+  <section class="opinion" id="opinion" aria-labelledby="opinion-titulo">
+    <div class="filete" aria-hidden="true">
+      <svg viewBox="0 0 400 20" preserveAspectRatio="xMidYMid meet" focusable="false">
+        <path class="filete__linea" d="M8 10H184"/>
+        <path class="filete__linea filete__linea--der" d="M392 10H216"/>
+        <path class="filete__rombo" d="M200 2 208 10 200 18 192 10Z"/>
+      </svg>
+    </div>
+
+    <div class="opinion__cuerpo">
+      <div class="sello-nota">
+        <svg class="sello-nota__grabado" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+          <circle class="sn-linea" cx="120" cy="120" r="114"/>
+          <circle class="sn-fina" cx="120" cy="120" r="106"/>
+          <circle class="sn-puntos" cx="120" cy="120" r="100"/>
+          <path id="sn-arco" class="sn-guia" d="M34 120A86 86 0 0 1 206 120"/>
+          <text class="sn-texto"><textPath href="#sn-arco" startOffset="50%" text-anchor="middle">VALORACIÓN EN GOOGLE</textPath></text>
+        </svg>
+        <p class="sello-nota__dato">
+          <span class="sello-nota__cifra" data-contador="5" data-decimales="1">5,0</span>
+          <span class="sello-nota__estrellas" aria-hidden="true">★★★★★</span>
+          <span class="sello-nota__pie">1 reseña</span>
+        </p>
+      </div>
+
+      <div class="opinion__texto">
+        <p class="antetitulo antetitulo--oscuro">Lo que se dice de él</p>
+        <h2 class="visualmente-oculto" id="opinion-titulo">Opinión de un cliente</h2>
+        <figure class="cita">
+          <blockquote>
+            <p class="cita__texto" data-revelar="palabras">«Excelente profesional con muchos años de experiencia, por lo que lo sabe todo en cuanto a asesoría fiscal, laboral y contable.»</p>
+          </blockquote>
+          <figcaption class="cita__autor">
+            <span class="cita__nombre">Francisco González Gómez</span>
+            <span class="cita__fuente"><span aria-hidden="true">★★★★★</span> Reseña de 5 estrellas en Google</span>
+          </figcaption>
+        </figure>
+        <p class="opinion__nota">Es la única reseña publicada en su ficha de Google. Aquí está entera, sin recortar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ Contacto ═══════════ -->
+  <section class="contacto" id="contacto" aria-labelledby="contacto-titulo">
+    <div class="contacto__cabeza">
+      <p class="antetitulo antetitulo--claro">Contacto</p>
+      <h2 class="contacto__titulo" id="contacto-titulo" data-revelar="palabras">Llame, o pásese por el despacho.</h2>
+    </div>
+
+    <div class="contacto__cuerpo">
+      <dl class="datos">
+        <div class="datos__fila">
+          <dt>Despacho</dt>
+          <dd>C. Regino de Miguel, 9, Bajo Dcha<br>06005 Badajoz</dd>
+        </div>
+        <div class="datos__fila">
+          <dt>Teléfono</dt>
+          <dd><a class="datos__telefono" href="tel:+34924259461">924 25 94 61</a></dd>
+        </div>
+        <div class="datos__fila">
+          <dt>Horario</dt>
+          <dd><span class="marca-pendiente">[PENDIENTE: franjas de atención; Google solo dice «Abierto ahora»]</span></dd>
+        </div>
+        <div class="datos__fila">
+          <dt>Correo</dt>
+          <dd><span class="marca-pendiente">[PENDIENTE: correo de contacto]</span></dd>
+        </div>
+        <div class="datos__acciones">
+          <a class="boton iman" href="tel:+34924259461"><span>Llamar ahora</span></a>
+          <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Regino+de+Miguel+9+06005+Badajoz" target="_blank" rel="noopener">Cómo llegar (abre Google Maps)</a>
+        </div>
+      </dl>
+
+      <div class="mapa">
+        <div class="map-consent" id="mapa-consentimiento">
+          <svg class="map-consent__plano" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+            <path class="mc-calle" d="M-10 150C60 138 120 120 180 96S290 50 330 44"/>
+            <path class="mc-calle mc-calle--fina" d="M60 -10 110 210M200 -10 170 210M-10 70H330"/>
+            <circle class="mc-punto" cx="164" cy="104" r="6"/>
+            <circle class="mc-onda" cx="164" cy="104" r="16"/>
+          </svg>
+          <p class="map-consent__texto">El mapa lo sirve Google, que pone sus propias cookies. Solo se carga si lo pide.</p>
+          <button class="boton boton--mini" id="mapa-boton" type="button">Cargar el mapa</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ Pie ═══════════ -->
+<footer class="pie">
+  <div class="pie__marca">
+    <svg class="pie__mono" width="84" height="84" role="img" aria-label="Monograma de Enrique Botejara"><use href="#monograma" width="84" height="84"/></svg>
+    <p><span class="pie__nombre">Enrique Botejara</span>Asesor fiscal, laboral y contable<br>C. Regino de Miguel, 9, Bajo Dcha · 06005 Badajoz</p>
+  </div>
+  <div class="pie__columna">
+    <h2>Llamar</h2>
+    <p><a href="tel:+34924259461">924 25 94 61</a></p>
+  </div>
+  <div class="pie__columna">
+    <h2>En esta página</h2>
+    <p><a href="#areas">Las tres áreas</a></p>
+    <p><a href="#opinion">Opinión</a></p>
+    <p><a href="#contacto">Contacto</a></p>
+  </div>
+  <div class="pie__legal">
+    <p>© <span id="anio">2026</span> Enrique Botejara · <span class="marca-pendiente">[PENDIENTE: NIF y datos de colegiación, si los hay]</span></p>
+    <p><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad y cookies</a></p>
+    <p class="pie__creditos">Maqueta de presentación. Balanza, pesas y monograma dibujados para esta web. Tipografías Libre Caslon y Public Sans (licencia OFL).</p>
+  </div>
+</footer>
+
+<!-- ═══════════ Aviso de cookies ═══════════ -->
+<div class="cookies" id="cookies" hidden>
+  <p class="cookies__texto">
+    Esta web no usa cookies de seguimiento. Solo guarda en su navegador que ya ha visto este aviso
+    y, si lo pide, carga el mapa de Google, que sí pone las suyas. <a href="privacidad.html">Más detalle</a>.
+  </p>
+  <div class="cookies__acciones">
+    <button class="boton boton--mini" id="cookies-aceptar" type="button">De acuerdo</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [MANDO DE MAQUETA] — SOLO REVISIÓN INTERNA. NO PUBLICAR.
+     Borrar este bloque, el bloque CSS marcado igual en estilos.css, el bloque
+     JS marcado igual en main.js y la parte de densidad del script del <head>.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div class="mando" id="mando" hidden>
+  <span class="mando__titulo">Versión</span>
+  <div class="mando__botones" role="group" aria-label="Densidad visual de la maqueta">
+    <button type="button" data-densidad="fiel" aria-pressed="true">Fiel</button>
+    <button type="button" data-densidad="sobria" aria-pressed="false">Sobria</button>
+  </div>
+  <span class="mando__pie">Dos versiones de la misma web</span>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Enrique Botejara · Asesoría",
+  "description": "Asesoramiento fiscal, laboral y contable en Badajoz.",
+  "telephone": "+34924259461",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Regino de Miguel, 9, Bajo Dcha",
+    "addressLocality": "Badajoz",
+    "postalCode": "06005",
+    "addressRegion": "Badajoz",
+    "addressCountry": "ES"
+  },
+  "areaServed": "Badajoz"
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
